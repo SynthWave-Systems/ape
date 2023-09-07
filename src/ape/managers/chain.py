@@ -223,7 +223,7 @@ class BlockContainer(BaseManager):
         query = BlockQuery(
             columns=list(self.head.__fields__),  # TODO: fetch the block fields from EcosystemAPI
             start_block=start,
-            stop_block=stop - 1,
+            stop_block=max(start, stop - 1),
             step=step,
         )
 
